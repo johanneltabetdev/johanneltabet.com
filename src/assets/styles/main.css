@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+:root {
+  --bg: #fff;
+  --text: #000;
+  --brand: #066afb;
+  --gray: rgba(0, 0, 0, 0.6);
+  --header-bg: hsla(0, 0%, 100%, 0.6);
+  --border: rgba(0, 0, 0, 0.08);
+  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --site-width: 1100px;
+  --input: #ffffff;
+}
+
+[data-theme='dark'] {
+  --bg: #161515;
+  --text: #fff;
+  --gray: rgba(255, 255, 255, 0.5);
+  --header-bg: rgba(22, 21, 21, 0.6);
+  --border: hsla(0, 0%, 100%, 0.08);
+  --input: #292929;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg);
+  color: var(--text);
+  @apply antialiased;
+}
+
+.nuxt-progress {
+  background: var(--text) !important;
+}
+
+.wrap {
+  @apply px-6;
+  max-width: var(--site-width);
+}
+
+.main {
+  min-height: calc(100vh - 290px);
+  @apply pt-24;
+}
+
+.text-brand {
+  color: var(--brand);
+}
+
+.text-gray {
+  color: var(--gray);
+}
+
+.border-color {
+  border-color: var(--border);
+}
+
+h1 {
+  @apply text-xl;
+  font-weight: bold;
+}
+
+h1 .underline {
+  box-shadow: 0 2px 0;
+  color: var(--text);
+}
+
+.underline {
+  box-shadow: 0 1px 0;
+  @apply text-current no-underline cursor-pointer;
+}
+
+.button {
+  background: var(--brand);
+  @apply inline-block text-center	text-white font-medium py-2 px-3 rounded-sm transition duration-300;
+}
+.button.-min-width {
+  @apply w-40;
+}
+
+@screen sm {
+  .wrap {
+    @apply px-12;
+  }
+}
+
+@screen lg {
+  .wrap {
+    @apply px-12;
+    margin: 0 auto;
+  }
+  .main {
+    @apply pt-40;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+}
+
+@screen xl {
+  .wrap {
+    @apply px-20;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.page-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease-out, transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+  transform: translate(0, 15px);
+}
