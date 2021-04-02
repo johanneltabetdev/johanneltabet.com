@@ -7,11 +7,19 @@
 </template>
 
 <script>
-import { defineComponent, ref, watch } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, ref, watch } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
     const isDark = ref(false)
+    onMounted(() => {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        isDark.value = true
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        isDark.value = e.matches
+      })
+    })
     watch(isDark, val => {
       document.documentElement.dataset.theme = val ? 'dark' : 'light'
     })
