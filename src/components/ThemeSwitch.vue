@@ -2,14 +2,20 @@
   <label class="theme-switch" for="theme-switch">
     <input id="theme-switch" v-model="isDark" class="theme-switch__input" type="checkbox" />
     <span class="theme-switch__slider" />
-    <span class="theme-switch__icon">{{ !isDark ? '☀️' : '🌙' }}</span>
+    <span class="theme-switch__icon">
+      <component :is="!isDark ? 'SunIcon' : 'MoonIcon'" />
+    </span>
   </label>
 </template>
 
 <script>
 import { defineComponent, onMounted, ref, watch } from '@nuxtjs/composition-api'
 
+import SunIcon from '~/assets/svg/sun.svg'
+import MoonIcon from '~/assets/svg/moon.svg'
+
 export default defineComponent({
+  components: { SunIcon, MoonIcon },
   setup() {
     const isDark = ref(false)
     onMounted(() => {
@@ -43,8 +49,8 @@ export default defineComponent({
   @apply w-0 h-0 opacity-0;
 }
 .theme-switch__slider {
-  background-color: #ccc;
-  @apply absolute top-0 right-0 bottom-0 left-0 rounded-full transition duration-500;
+  background-color: #ddd;
+  @apply absolute top-0 right-0 bottom-0 left-0 rounded-full;
 }
 .theme-switch__slider:before {
   content: '';
@@ -63,14 +69,22 @@ export default defineComponent({
 .theme-switch__input:checked + .theme-switch__slider:before {
   transform: translateX(28px);
 }
-.theme-switch__input:checked + * + .theme-switch__icon {
-  left: 7px;
-  right: auto;
-}
 .theme-switch__icon {
-  right: 10px;
+  right: 11px;
   position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+  top: 7px;
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+}
+.theme-switch__icon svg {
+  fill: white;
+}
+.theme-switch__input:checked + * + .theme-switch__icon {
+  left: 8px;
+  top: 8px;
+  right: auto;
+  transform: rotate(25deg);
+  opacity: 1;
 }
 </style>
