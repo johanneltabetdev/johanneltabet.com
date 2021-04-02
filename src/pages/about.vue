@@ -27,7 +27,7 @@
             :class="{ 'px-1 -inline': section.inline, 'mb-8': !section.inline }"
           >
             <p class="text-sm text-gray mb-1">{{ item.date }}</p>
-            <h3 class="font-medium text-lg mb-2 flex flex-wrap justify-between">
+            <h3 class="font-bold text-lg mb-2 flex flex-wrap justify-between">
               <span>{{ item.title }}</span>
               <img v-if="item.image" class="w-8 h-8 rounded-full" :src="item.image" />
             </h3>

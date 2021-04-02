@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div v-html="options.intro" />
+    <div class="intro" v-html="options.intro" />
     <ul class="pt-24 lg:-mx-4 lg:pt-32 lg:pb-12 flex flex-wrap justify-between">
       <li
         v-for="item in works"
@@ -32,3 +32,14 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="postcss">
+.intro h1 br {
+  display: none;
+}
+@screen sm {
+  .intro h1 br {
+    display: block;
+  }
+}
+</style>

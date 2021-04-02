@@ -3,10 +3,10 @@
     <a class="project__image" target="_blank" :href="item.link">
       <LazyImage :item="project.thumbnail" />
     </a>
-    <div class="project__infos mt-6 pl-2 sm:pl-6">
+    <div class="project__infos mt-8 pl-2 sm:pl-6">
       <h3 class="text-xl lg:text-2xl font-bold">{{ project.title }}</h3>
       <p class="mt-1 lg:text-lg">{{ project.long_title }}</p>
-      <a :href="item.link" class="mt-2 text-brand flex projects-center lg:text-lg">
+      <a :href="item.link" target="_blank" class="mt-2 text-brand flex projects-center lg:text-lg">
         visit {{ project.linkDisplay }}
         <LinkIcon class="pl-2" />
       </a>
@@ -34,7 +34,8 @@ export default defineComponent({
 <style lang="postcss">
 .project__image {
   padding: 57% 0 0 0;
-  @apply flex justify-center items-center relative overflow-hidden bg-black h-0 rounded-2xl;
+  background: var(--project-bg);
+  @apply flex justify-center items-center relative overflow-hidden h-0 rounded-2xl;
 }
 @screen lg {
   .project__image {

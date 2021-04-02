@@ -39,10 +39,13 @@ export default defineComponent({
 
 <style lang="postcss">
 footer {
-  color: var(--gray);
+  @apply font-medium;
+}
+footer a {
+  @apply capitalize transition;
 }
 footer .nuxt-link-exact-active {
-  color: var(--text);
+  @apply font-bold;
   box-shadow: 0 1px 0;
 }
 </style>
