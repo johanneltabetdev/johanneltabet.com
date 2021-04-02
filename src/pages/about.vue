@@ -1,10 +1,10 @@
 <template>
   <div class="about">
     <div class="wrap">
-      <h1 class="mb-4">{{ about.title }}</h1>
+      <h1 class="mb-4 lg:mb-16">{{ about.title }}</h1>
       <div class="lg:flex lg:flex-wrap lg:justify-between">
-        <div class="pt-1 pb-4 lg:pt-2 lg:pb-0 w-20 lg:w-1/12">
-          <img class="rounded-full" src="/avatar.png" alt="" />
+        <div class="pt-1 pb-4 lg:pt-2 lg:pb-0 w-20 lg:w-40">
+          <img class="rounded-full" src="/avatar.jpg" alt="" />
         </div>
         <div class="lg:w-9/12 pt-2 about__intro font-medium text-lg" v-html="about.content" />
       </div>
