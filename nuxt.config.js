@@ -17,12 +17,7 @@ export default {
 
   components: true,
 
-  buildModules: [
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/composition-api',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-analytics',
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/composition-api', '@nuxtjs/tailwindcss'],
 
   modules: ['@nuxtjs/axios', 'nuxt-svg-loader'],
 
