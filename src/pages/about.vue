@@ -4,7 +4,13 @@
       <h1 class="mb-4 lg:mb-16">{{ about.title }}</h1>
       <div class="lg:flex lg:flex-wrap lg:justify-between">
         <div class="pt-1 pb-4 lg:pt-2 lg:pb-0 w-20 lg:w-40">
-          <img class="rounded-full" src="/avatar.jpg" alt="" />
+          <img
+            class="rounded-full"
+            src="/avatar.jpg"
+            alt="Johann Eltabet"
+            width="160"
+            height="160"
+          />
         </div>
         <div class="lg:w-9/12 pt-2 about__intro font-medium text-lg" v-html="about.content" />
       </div>
@@ -29,7 +35,15 @@
             <p class="text-sm text-gray mb-1">{{ item.date }}</p>
             <h3 class="font-bold text-lg mb-2 flex flex-wrap justify-between">
               <span>{{ item.title }}</span>
-              <img v-if="item.image" class="w-8 h-8 rounded-full" :src="item.image" />
+              <img
+                v-if="item.image"
+                loading="lazy"
+                class="w-8 h-8 rounded-full"
+                :src="item.image"
+                :alt="item.title"
+                width="32"
+                height="32"
+              />
             </h3>
             <div class="text-sm" v-html="item.description" />
           </li>

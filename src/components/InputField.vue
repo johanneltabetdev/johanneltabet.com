@@ -1,7 +1,7 @@
 <template>
   <div class="input-field">
     <label class="mb-2 text-sm mb-2 block" :for="name">{{ label }}{{ required ? '*' : '' }}</label>
-    <textarea v-if="type === 'textarea'" v-model="model" />
+    <textarea v-if="type === 'textarea'" :id="name" v-model="model" />
     <input
       v-else
       :id="name"

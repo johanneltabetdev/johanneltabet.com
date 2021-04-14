@@ -1,5 +1,6 @@
 <template>
   <label class="theme-switch" for="theme-switch">
+    <span class="sr-only">Toggle theme</span>
     <input id="theme-switch" v-model="isDark" class="theme-switch__input" type="checkbox" />
     <span class="theme-switch__slider" />
     <span class="theme-switch__icon">

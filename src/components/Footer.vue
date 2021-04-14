@@ -11,7 +11,7 @@
       <div class="lg:w-4/12 mt-6 lg:mt-0">
         <ul>
           <li v-for="link in links" :key="link" class="mb-2">
-            <a :href="options[link]" target="_blank">{{ link }}</a>
+            <a :href="options[link]" target="_blank" rel="noopener">{{ link }}</a>
           </li>
         </ul>
       </div>

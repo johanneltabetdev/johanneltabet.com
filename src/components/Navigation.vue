@@ -6,7 +6,7 @@
         <li class="sm:pr-2"><nuxt-link to="/">Work</nuxt-link></li>
         <li class="sm:pr-2"><nuxt-link to="/about">About</nuxt-link></li>
         <li><nuxt-link to="/contact">Contact</nuxt-link></li>
-        <ThemeSwitch class="ml-6" />
+        <li><ThemeSwitch class="ml-6" /></li>
       </ul>
     </div>
   </nav>

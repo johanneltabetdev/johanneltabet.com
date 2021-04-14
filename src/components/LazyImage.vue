@@ -3,7 +3,13 @@
     v-observe-visibility="{ callback: setIsVisible, once: true }"
     :class="{ '-loaded': state.isLoaded, 'lazy-image': lazy }"
   >
-    <img :srcset="srcset" :sizes="sizes" :alt="item.alt || ''" @load="setIsLoaded" />
+    <img
+      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+      :srcset="srcset"
+      :sizes="sizes"
+      :alt="item.alt || ''"
+      @load="setIsLoaded"
+    />
   </div>
 </template>
 

@@ -1,12 +1,23 @@
 <template>
   <div class="project">
-    <a class="project__image" target="_blank" :href="item.link">
+    <a
+      class="project__image"
+      :href="project.link"
+      :aria-label="project.title"
+      target="_blank"
+      rel="noopener"
+    >
       <LazyImage :item="project.thumbnail" />
     </a>
     <div class="project__infos mt-8 pl-2 sm:pl-6">
-      <h3 class="text-xl lg:text-2xl font-bold">{{ project.title }}</h3>
-      <p class="mt-1 lg:text-lg">{{ project.long_title }}</p>
-      <a :href="item.link" target="_blank" class="mt-2 text-brand flex projects-center lg:text-lg">
+      <h2 class="text-xl lg:text-2xl font-bold">{{ project.title }}</h2>
+      <h3 class="mt-1 lg:text-lg">{{ project.long_title }}</h3>
+      <a
+        :href="item.link"
+        class="mt-2 text-brand flex projects-center lg:text-lg"
+        target="_blank"
+        rel="noopener"
+      >
         visit {{ project.linkDisplay }}
         <LinkIcon class="pl-2" />
       </a>
