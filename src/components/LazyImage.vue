@@ -3,13 +3,7 @@
     v-observe-visibility="{ callback: setIsVisible, once: true }"
     :class="{ '-loaded': state.isLoaded, 'lazy-image': lazy }"
   >
-    <img
-      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-      :srcset="srcset"
-      :sizes="sizes"
-      :alt="item.alt || ''"
-      @load="setIsLoaded"
-    />
+    <img :srcset="attrs.srcset" :sizes="attrs.sizes" :alt="item.alt || ''" @load="setIsLoaded" />
   </div>
 </template>
 
@@ -22,6 +16,7 @@ export default defineComponent({
   props: {
     item: { type: Object, default: () => ({}) },
     lazy: { type: Boolean, default: true },
+    includeSizes: { type: Array, default: () => [] },
   },
   setup(props) {
     const state = reactive({
@@ -32,22 +27,29 @@ export default defineComponent({
     const setIsVisible = () => (state.isVisible = true)
     const setIsLoaded = () => (state.isLoaded = true)
 
-    const mapSizes = isSrcSet =>
-      Object.entries(screens)
-        .reduce((acc, [key, value]) => {
+    const attrs = computed(() => {
+      const filteredSizes = Object.entries(screens).filter(([key]) =>
+        props.includeSizes.includes(key),
+      )
+      const srcset = filteredSizes.reduce((acc, [key, value]) => {
+        const src = props.item[key]
+        return src ? [`${src} ${value}w`, ...acc] : acc
+      }, [])
+      const sizes = filteredSizes
+        .reduce((acc, [key, value], i, arr) => {
           const size = props.item[key]
-          const string = isSrcSet ? `${size} ${value}w` : `(min-width: ${value}px) ${value}px`
-          return size ? [string, ...acc] : acc
+          const mediaQuery =
+            i < arr.length - 1 ? `(min-width: ${value}px) ${(arr[i + 1] || [])[1]}w` : `100vw`
+          return size ? [`${mediaQuery}`, ...acc] : acc
         }, [])
-        .join(',\n')
-
-    const srcset = computed(() => {
-      if (!state.shouldLoad) return ''
-      return mapSizes(true)
+        .reverse()
+      return {
+        srcset: !state.shouldLoad ? '' : srcset,
+        sizes,
+      }
     })
-    const sizes = computed(() => mapSizes())
 
-    return { state, srcset, sizes, setIsVisible, setIsLoaded }
+    return { state, attrs, setIsVisible, setIsLoaded }
   },
 })
 </script>
