@@ -39,7 +39,7 @@ export default defineComponent({
         .reduce((acc, [key, value], i, arr) => {
           const size = props.item[key]
           const mediaQuery =
-            i < arr.length - 1 ? `(min-width: ${value}px) ${(arr[i + 1] || [])[1]}w` : `100vw`
+            i < arr.length ? `(min-width: ${value}px) ${(arr[i + 1] || [])[1] || 100}w` : `100vw`
           return size ? [`${mediaQuery}`, ...acc] : acc
         }, [])
         .reverse()

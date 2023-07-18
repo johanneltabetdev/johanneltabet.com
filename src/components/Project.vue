@@ -7,7 +7,7 @@
       target="_blank"
       rel="noopener"
     >
-      <LazyImage :item="project.thumbnail" :include-sizes="['sm', 'md', 'lg']" />
+      <LazyImage :item="project.thumbnail" :include-sizes="['sm', 'md', 'lg', 'xl']" />
     </a>
     <div class="project__infos mt-8 pl-2 sm:pl-6">
       <h2 class="text-xl lg:text-2xl font-bold">{{ project.title }}</h2>
