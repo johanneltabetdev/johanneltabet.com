@@ -33,7 +33,10 @@ export default defineComponent({
       )
       const srcset = filteredSizes.reduce((acc, [key, value]) => {
         const src = props.item[key]
-        return src ? [`${src} ${value}w`, ...acc] : acc
+        if (!src) return acc
+        const regex = /\/uploads\/[\d]{4}\/[\d]{2}\/[\w-]+\.(png|jpg|jpeg|gif)/i // Regular expression pattern
+        const url = src.match(regex)[0]
+        return [`${url} ${value}w`, ...acc]
       }, [])
       const sizes = filteredSizes
         .reduce((acc, [key, value], i, arr) => {

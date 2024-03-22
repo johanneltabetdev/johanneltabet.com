@@ -21,10 +21,5 @@ export default defineComponent({
     const options = useAsync(() => $axios.get('/api/options'))
     provideStore({ options })
   },
-  head() {
-    return {
-      meta: [{ hid: 'robots', name: 'robots', content: 'noindex,nofollow' }],
-    }
-  },
 })
 </script>
