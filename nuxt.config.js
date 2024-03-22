@@ -44,7 +44,12 @@ export default {
   build: {
     plugins: [
       new CopyPlugin({
-        patterns: [{ from: process.env.UPLOADS_PATH, to: path.join(__dirname, 'static/') }],
+        patterns: [
+          {
+            from: process.env.UPLOADS_PATH,
+            to: path.join(__dirname, 'src/static/uploads'),
+          },
+        ],
       }),
     ],
   },
