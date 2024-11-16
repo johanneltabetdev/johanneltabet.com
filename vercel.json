@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.linkedin.com/in/johann-eltabet-945751112/",
+      "permanent": false
+    }
+  ]
+}
