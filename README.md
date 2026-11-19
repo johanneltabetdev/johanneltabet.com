@@ -1,4 +1,3 @@
 # johanneltabet.com
 
-My personal website/portfolio. Written with Nuxt.js and deployed on Vercel.
-Data fetch with Wordpress REST API https://github.com/johanneltabet/cms.johanneltabet
+Static one-page CV site. `public/index.html` is the whole site (fonts and styles inlined), served as-is on Vercel with no build step.
